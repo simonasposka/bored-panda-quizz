@@ -1,6 +1,6 @@
 <template>
   <header class="w-100 bg-[#363946] lg:bg-white">
-    <PandaHeader/>
+    <AboveNavbar/>
     <MainNavigationBar/>
     <UnderNavbar/>
   </header>
@@ -8,13 +8,13 @@
 
 <script>
 
-import PandaHeader from './PandaHeader.vue';
+import AboveNavbar from './AboveNavbar.vue';
 import MainNavigationBar from './MainNavigationBar.vue';
 import UnderNavbar from "./UnderNavbar.vue";
 
 export default {
   name: 'Navbar',
-  components: {PandaHeader, MainNavigationBar, UnderNavbar, },
+  components: {AboveNavbar, MainNavigationBar, UnderNavbar, },
 }
 </script>
 

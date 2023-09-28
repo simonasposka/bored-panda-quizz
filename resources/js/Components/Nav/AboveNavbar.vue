@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'PandaHeader',
+  name: 'AboveNavbar',
 }
 </script>
 
