@@ -1,13 +1,16 @@
 <template>
-    <div>
-        <h1 class="text-md">Welcome!</h1>
-    </div>
+  <div>
+<!--    <pre>{{ quizzes }}</pre>-->
+  </div>
 </template>
 
 
 <script>
 export default {
-    name: "Welcome"
+  name: 'Welcome',
+  props: {
+    quizzes: Array,
+  }
 }
 </script>
 
