@@ -10,10 +10,10 @@
 
       <div class="ml-8 hidden lg:flex lg:flex-col justify-center">
         <div class="flex">
-          <a href="/public" class="mr-8 text-orange-500">Quizzes</a>
           <a href="https://www.boredpanda.com/art/" class="mr-8 hover:text-orange-500">Art</a>
           <a href="https://www.boredpanda.com/animals/" class="mr-8 hover:text-orange-500">Animals</a>
           <a href="https://www.boredpanda.com/funny/" class="mr-8 hover:text-orange-500">Funny</a>
+          <a href="/public" class="mr-8 text-orange-500">Quizzes</a>
           <a href="https://www.boredpanda.com/">More</a>
         </div>
       </div>
