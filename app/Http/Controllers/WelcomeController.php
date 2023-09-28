@@ -9,7 +9,7 @@ class WelcomeController extends Controller
 {
     public function index(): Response
     {
-        $quizzes = Quizz::all();
+        $quizzes = Quizz::with('image')->get();
 
         return Inertia('Welcome', [
             'quizzes' => $quizzes,

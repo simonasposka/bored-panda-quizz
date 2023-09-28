@@ -2,7 +2,7 @@
   <div class="container flex mx-auto justify-between font-medium text-base py-2 px-5 lg:px-0">
     <div class="flex">
       <div class="flex-col justify-center">
-        <a href="/public">
+        <a href="/">
           <img class="hidden lg:inline-block h-[80px]" src="/images/logo.png" alt="BoredPanda dark logo">
           <img class="lg:hidden h-[37px]" src="/images/logo-light.png" alt="BoredPanda light logo">
         </a>
@@ -10,10 +10,10 @@
 
       <div class="ml-8 hidden lg:flex lg:flex-col justify-center">
         <div class="flex">
-          <a href="https://www.boredpanda.com/art/" class="mr-8 hover:text-orange-500">Art</a>
-          <a href="https://www.boredpanda.com/animals/" class="mr-8 hover:text-orange-500">Animals</a>
-          <a href="https://www.boredpanda.com/funny/" class="mr-8 hover:text-orange-500">Funny</a>
-          <a href="/public" class="mr-8 text-orange-500">Quizzes</a>
+          <a href="https://www.boredpanda.com/art/" class="mr-8 hover:text-orange-700">Art</a>
+          <a href="https://www.boredpanda.com/animals/" class="mr-8 hover:text-orange-700">Animals</a>
+          <a href="https://www.boredpanda.com/funny/" class="mr-8 hover:text-orange-700">Funny</a>
+          <a href="/" class="mr-8 text-orange-700">Quizzes</a>
           <a href="https://www.boredpanda.com/">More</a>
         </div>
       </div>

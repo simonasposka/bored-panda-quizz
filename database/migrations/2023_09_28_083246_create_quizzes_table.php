@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
+            $table->foreignId('image_id')->nullable()->constrained('images')->onDelete('set null');
             $table->text('description');
             $table->timestamps();
         });
