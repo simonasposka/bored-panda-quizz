@@ -1,10 +1,20 @@
 import Vue from 'vue';
 import {createInertiaApp} from '@inertiajs/vue2';
 
-createInertiaApp({
+import Layout from './Layout.vue';
+
+await createInertiaApp({
     resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.vue', {eager: true})
-        return pages[`./Pages/${name}.vue`]
+        // const pages = import.meta.glob('./Pages/**/*.vue', {eager: true})
+        // return pages[`./Pages/${name}.vue`]
+
+      const pages = import.meta.glob('./Pages/**/*.vue', { eager: true });
+
+      let page = pages[`./Pages/${name}.vue`];
+
+      page.default.layout = page.default.layout || Layout;
+
+      return page
     },
     setup({el, App, props, plugin}) {
         Vue.use(plugin)
