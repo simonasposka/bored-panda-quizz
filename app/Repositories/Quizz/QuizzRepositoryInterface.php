@@ -2,9 +2,12 @@
 
 namespace App\Repositories\Quizz;
 
+use App\Enums\QuizzType;
 use App\Models\Quizz;
 
 interface QuizzRepositoryInterface
 {
-    public function createQuizz(string $title, ?string $description, ?int $imageId): Quizz;
+    public function tryFindBySlugWithImageAndQuestions(string $slug): ?Quizz;
+
+    public function createQuizz(string $title, QuizzType $quizzType, ?string $description = null, ?int $imageId = null): Quizz;
 }

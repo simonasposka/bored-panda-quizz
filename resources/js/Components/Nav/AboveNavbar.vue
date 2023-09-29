@@ -13,13 +13,13 @@ export default {
 
 <style scoped>
 .cover {
-  background: #fff url("images/header-background.jpg") repeat-x center top;
+  background: #fff url("/images/header-background.jpg") repeat-x center top;
   height: 199px;
   max-width: 100%;
 }
 
 .panda {
-  background: url("images/header-panda.svg") no-repeat 0 0;
+  background: url("/images/header-panda.svg") no-repeat 0 0;
   background-size: contain;
   width: 220px;
   height: 116px;

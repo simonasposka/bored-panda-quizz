@@ -1,5 +1,5 @@
 <template>
-  <div class="primary-button flex px-4 py-2 text-white rounded cursor-pointer border-b-2"
+  <div class="primary-button flex justify-center px-4 py-2 text-white rounded cursor-pointer border-b-2"
        @click="onClick">
     <slot></slot>
   </div>
