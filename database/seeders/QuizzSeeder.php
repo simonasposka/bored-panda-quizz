@@ -8,6 +8,8 @@ use Illuminate\Database\Seeder;
 
 class QuizzSeeder extends Seeder
 {
+    public const BARBIE_AND_KEN_QUIZZ_ID = 1;
+
     public function __construct(readonly QuizzRepositoryInterface $quizzRepository)
     {
     }

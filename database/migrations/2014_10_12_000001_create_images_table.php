@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Image;
 
 return new class extends Migration
 {
@@ -13,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
-            $table->string('alt')->nullable();
+            $table->string(Image::URL_FIELD);
+            $table->string(Image::ALT_FIELD)->nullable();
             $table->timestamps();
         });
     }

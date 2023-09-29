@@ -6,7 +6,7 @@ use App\Models\Answer;
 
 class AnswerRepository implements AnswerRepositoryInterface
 {
-    public function createAnswer(int $questionId, string $text, ?int $imageId = null): Answer
+    public function createAnswer(int $questionId, ?string $text = null, ?int $imageId = null): Answer
     {
         $answer              = new Answer();
         $answer->question_id = $questionId;

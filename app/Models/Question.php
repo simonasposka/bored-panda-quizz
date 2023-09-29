@@ -16,6 +16,10 @@ class Question extends Model
 {
     use HasFactory;
 
+    public const QUIZZ_ID_FIELD = 'quizz_id';
+    public const IMAGE_ID_FIELD = 'image_id';
+    public const TEXT_FIELD = 'text';
+
     public $timestamps = false;
 
     public function quizz(): BelongsTo

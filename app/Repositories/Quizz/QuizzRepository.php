@@ -4,8 +4,7 @@ namespace App\Repositories\Quizz;
 
 use App\Enums\QuizzType;
 use App\Models\Quizz;
-use App\Constants\Shared;
-
+use App\Constants\Relationships;
 
 class QuizzRepository implements QuizzRepositoryInterface
 {
@@ -24,12 +23,15 @@ class QuizzRepository implements QuizzRepositoryInterface
     public function tryFindBySlugWithImageAndQuestions(string $slug): ?Quizz
     {
         $quizz = Quizz::with([
-            Shared::IMAGE,
-            Shared::QUESTIONS => function ($query) {
+            Relationships::IMAGE,
+            Relationships::QUESTIONS => function ($query) {
                 return $query->with([
-                    Shared::IMAGE,
-                    Shared::ANSWERS => function ($query) {
-                        return $query->with(Shared::IMAGE);
+                    Relationships::IMAGE,
+                    Relationships::ANSWERS => function ($query) {
+                        return $query->with([
+                            Relationships::IMAGE,
+                            Relationships::ANSWER_OUTCOMES,
+                        ]);
                     },
                 ]);
             },

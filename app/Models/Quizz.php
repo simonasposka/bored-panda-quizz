@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\QuizzType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,15 +17,18 @@ use Spatie\Sluggable\SlugOptions;
  * @property ?int image_id
  * @property string created_at
  * @property string updated_at
- * @property QuizzType $type
+ * @property string $type
  * @method static Builder where($column, $operator = null, $value = null, $boolean = 'and')
  */
 class Quizz extends Model
 {
     use HasFactory, HasSlug;
 
+    public const TITLE_FIELD = 'title';
     public const SLUG_FIELD = 'slug';
-    public const TITLE_FIELD = 'slug';
+    public const IMAGE_ID_FIELD = 'image_id';
+    public const DESCRIPTION_FIELD = 'description';
+    public const TYPE_FIELD = 'type';
 
     protected $table = 'quizzes';
 
@@ -38,6 +40,11 @@ class Quizz extends Model
     public function questions(): HasMany
     {
         return $this->hasMany(Question::class);
+    }
+
+    public function outcomes(): HasMany
+    {
+        return $this->hasMany(Outcome::class);
     }
 
     public function getSlugOptions(): SlugOptions

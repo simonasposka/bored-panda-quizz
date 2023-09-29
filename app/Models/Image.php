@@ -14,4 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
+
+    public const URL_FIELD = 'url';
+
+    public const ALT_FIELD = 'alt';
 }

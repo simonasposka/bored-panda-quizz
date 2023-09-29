@@ -1,11 +1,11 @@
 <?php
 
+use App\Models\Question;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('quizz_id')->constrained('quizzes')->onDelete('cascade');
-            $table->foreignId('image_id')->nullable()->constrained('images')->onDelete('set null');
-            $table->text('text');
+            $table->foreignId(Question::QUIZZ_ID_FIELD)->constrained('quizzes')->onDelete('cascade');
+            $table->foreignId(Question::IMAGE_ID_FIELD)->nullable()->constrained('images')->onDelete('set null');
+            $table->text(Question::TEXT_FIELD);
         });
     }
 

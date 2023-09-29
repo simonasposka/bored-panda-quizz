@@ -2,7 +2,9 @@
 
 namespace App\Repositories\Answer;
 
+use App\Models\Answer;
+
 interface AnswerRepositoryInterface
 {
-    public function createAnswer(int $questionId, string $text, ?int $imageId = null);
+    public function createAnswer(int $questionId, ?string $text = null, ?int $imageId = null): Answer;
 }

@@ -30,12 +30,16 @@ class ImageSeeder extends Seeder
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694715395/wrebfnzyf2utsymi7ahf.png', alt: 'Barbie outfit');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694711976/dicnghx0useks3hdszhl.jpg', alt: 'Barbie shoe');
 
-        // For Answers: 14-34
+        // For Outcomes: 14-15
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1694707296/s8sq9h5kpeh9hovwhb8j.jpg', alt: 'Barbie');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1694707333/dugsygnsegrrb5e33tzi.jpg', alt: 'Ken');
+
+        // For Answers: 16-36
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694708877/sffq7xtdy14jqqwa1skv.jpg', alt: 'Barbie car');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694708940/cdavx9luqemq4ha12tme.jpg', alt: 'Rollerblades');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694709066/bdokvapuqhmoves0rdas.jpg', alt: 'Toast with Butter');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694709337/pm5ndsjrzyjcg0aiaddr.jpg', alt: 'Coffee and donut');
-        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694709337/pm5ndsjrzyjcg0aiaddr.jpg', alt: 'Western Ken');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1694709417/nk7nekxu0ighcsrs9mox.jpg', alt: 'Western Ken');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694709606/bxrm0lhjzphqixkw6rhq.jpg', alt: 'Surfboard Ken');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694709862/kv4e0zkfxcbtjzljc4cx.jpg', alt: 'Fashionista Ken');
 

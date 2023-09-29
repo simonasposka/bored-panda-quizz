@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Quizz\QuizzRepositoryInterface;
-use Symfony\Component\HttpFoundation\Response;
+use App\Services\QuizzService;
+use Inertia\Response;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class QuizzesController extends Controller
 {
-    public function __construct(readonly QuizzRepositoryInterface $quizzRepository)
+    public function __construct(readonly QuizzService $quizzService)
     {
     }
 
-    public function show(string $slug): \Inertia\Response
+    public function show(string $slug): Response
     {
-        $quizz = $this->quizzRepository->tryFindBySlugWithImageAndQuestions($slug);
+        $quizz = $this->quizzService->tryFindBySlug($slug);
 
         if (is_null($quizz)) {
-            abort(Response::HTTP_NOT_FOUND);
+            abort(SymfonyResponse::HTTP_NOT_FOUND);
         }
 
         return Inertia('ShowQuizz', [

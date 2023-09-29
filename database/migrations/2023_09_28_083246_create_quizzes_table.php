@@ -4,6 +4,7 @@ use App\Enums\QuizzType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Quizz;
 
 return new class extends Migration {
     /**
@@ -13,11 +14,11 @@ return new class extends Migration {
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->foreignId('image_id')->nullable()->constrained('images')->onDelete('set null');
-            $table->text('description');
-            $table->enum('type', [
+            $table->string(Quizz::TITLE_FIELD);
+            $table->string(Quizz::SLUG_FIELD)->unique();
+            $table->foreignId(Quizz::IMAGE_ID_FIELD)->nullable()->constrained('images')->onDelete('set null');
+            $table->text(Quizz::DESCRIPTION_FIELD);
+            $table->enum(Quizz::TYPE_FIELD, [
                 QuizzType::POLL->value,
                 QuizzType::ANSWER->value,
                 QuizzType::OUTCOME->value

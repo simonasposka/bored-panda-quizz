@@ -6,11 +6,14 @@ use App\Repositories\Answer\AnswerRepository;
 use App\Repositories\Answer\AnswerRepositoryInterface;
 use App\Repositories\Image\ImageRepository;
 use App\Repositories\Image\ImageRepositoryInterface;
+use App\Repositories\Outcome\OutcomeRepository;
+use App\Repositories\Outcome\OutcomeRepositoryInterface;
+use App\Repositories\AnswerOutcome\AnswerOutcomeRepository;
+use App\Repositories\AnswerOutcome\AnswerOutcomeRepositoryInterface;
 use App\Repositories\Question\QuestionRepository;
 use App\Repositories\Question\QuestionRepositoryInterface;
 use App\Repositories\Quizz\QuizzRepository;
 use App\Repositories\Quizz\QuizzRepositoryInterface;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,9 +31,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->app->singleton(ImageRepositoryInterface::class, function (Application $app) { return new ImageRepository(); });
-        $this->app->singleton(QuizzRepositoryInterface::class, function (Application $app) { return new QuizzRepository(); });
-        $this->app->singleton(QuestionRepositoryInterface::class, function (Application $app) { return new QuestionRepository(); });
-        $this->app->singleton(AnswerRepositoryInterface::class, function (Application $app) { return new AnswerRepository(); });
+        $this->app->singleton(ImageRepositoryInterface::class, function () { return new ImageRepository(); });
+        $this->app->singleton(QuizzRepositoryInterface::class, function () { return new QuizzRepository(); });
+        $this->app->singleton(QuestionRepositoryInterface::class, function () { return new QuestionRepository(); });
+        $this->app->singleton(AnswerRepositoryInterface::class, function () { return new AnswerRepository(); });
+        $this->app->singleton(OutcomeRepositoryInterface::class, function () { return new OutcomeRepository(); });
+        $this->app->singleton(AnswerOutcomeRepositoryInterface::class, function () { return new AnswerOutcomeRepository(); });
     }
 }
