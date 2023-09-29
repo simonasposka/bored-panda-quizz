@@ -4,6 +4,8 @@ namespace App\Repositories\Quizz;
 
 use App\Enums\QuizzType;
 use App\Models\Quizz;
+use App\Constants\Shared;
+
 
 class QuizzRepository implements QuizzRepositoryInterface
 {
@@ -22,16 +24,16 @@ class QuizzRepository implements QuizzRepositoryInterface
     public function tryFindBySlugWithImageAndQuestions(string $slug): ?Quizz
     {
         $quizz = Quizz::with([
-            'image',
-            'questions' => function ($query) {
+            Shared::IMAGE,
+            Shared::QUESTIONS => function ($query) {
                 return $query->with([
-                    'image',
-                    'answers' => function ($query) {
-                        return $query->with('image');
+                    Shared::IMAGE,
+                    Shared::ANSWERS => function ($query) {
+                        return $query->with(Shared::IMAGE);
                     },
                 ]);
             },
-        ])->where('slug', '=', $slug)->first();
+        ])->where(Quizz::SLUG_FIELD, '=', $slug)->first();
 
         if ($quizz instanceof Quizz) {
             return $quizz;

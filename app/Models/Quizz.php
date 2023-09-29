@@ -25,6 +25,9 @@ class Quizz extends Model
 {
     use HasFactory, HasSlug;
 
+    public const SLUG_FIELD = 'slug';
+    public const TITLE_FIELD = 'slug';
+
     protected $table = 'quizzes';
 
     public function image(): BelongsTo
@@ -40,7 +43,7 @@ class Quizz extends Model
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('title')
-            ->saveSlugsTo('slug');
+            ->generateSlugsFrom(self::TITLE_FIELD)
+            ->saveSlugsTo(self::SLUG_FIELD);
     }
 }
