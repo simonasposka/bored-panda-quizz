@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-5 lg:px-0">
+  <div class="container mx-auto px-5">
     <h1 class="text-4xl my-5 font-medium">Most Popular Quizzes</h1>
 
     <div class="grid my-5 gap-5 max-w-lg lg:max-w-7xl grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mx-auto lg:mx-0">

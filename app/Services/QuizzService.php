@@ -2,16 +2,17 @@
 
 namespace App\Services;
 
-use App\Constants\Relationships;
-use App\Enums\QuizzType;
 use App\Models\Quizz;
 use App\Repositories\Quizz\QuizzRepositoryInterface;
+use App\Services\Transformers\Quizz\QuizzTransformer;
 
 class QuizzService
 {
-    public function __construct(readonly QuizzRepositoryInterface $quizzRepository)
-    {
-    }
+    public function __construct(
+        readonly QuizzRepositoryInterface $quizzRepository,
+        readonly QuizzRelationshipLoader  $quizzRelationshipLoader,
+        readonly QuizzTransformer         $quizzTransformer,
+    ) {}
 
     public function tryFindBySlug(string $slug): ?Quizz
     {
@@ -21,19 +22,10 @@ class QuizzService
             return null;
         }
 
-        $this->loadRequiredRelationships($quizz);
+        if ($quizz->isQuizzTypeOutcome()) {
+            $this->quizzRelationshipLoader->loadOutcomesWithImages($quizz);
+        }
 
         return $quizz;
-    }
-
-    private function loadRequiredRelationships(Quizz $quizz): void
-    {
-        if ($quizz->type === QuizzType::OUTCOME->value) {
-            $quizz->load([
-                Relationships::OUTCOMES => function ($query) {
-                    return $query->with(Relationships::IMAGE);
-                },
-            ]);
-        }
     }
 }

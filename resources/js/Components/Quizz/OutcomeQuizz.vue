@@ -1,34 +1,48 @@
 <template>
   <div>
-    <div v-if="isOutcomeDetermined">
-      <Outcome :outcome="outcome" />
-    </div>
+    <QuizzResult v-if="isOutcomeDetermined"
+                 :image-src="getImageSourceForItem(outcome)"
+                 :image-alt="getImageAltTextForItem(outcome)"
+                 :title="outcome.title"
+                 :description="outcome.description"/>
 
     <div v-else>
-      <ProgressBar :current="currentQuestionIndex + 1" :max="lastQuestionIndex + 1" />
-      <QuestionCard :question="currentQuestion" @select-answer="handleSelectedAnswer"/>
+      <ProgressBar :current="currentQuestionNumber" :max="lastQuestionNumber"/>
+      <div class="shadow-md overflow-hidden rounded">
+        <QuizzHeader
+            :image-src="getImageSourceForItem(currentQuestion)"
+            :image-alt="getImageAltTextForItem(currentQuestion)"
+            :title="currentQuestion.text"/>
+
+        <Answers :answers="answers" @select-answer="handleSelectedAnswer"/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Outcome from './Outcome.vue';
+import {parseOutcomeIdFromAnswer} from '../../Util/parser.js';
+import {getOutcomeIdWithHighestScore, getNewOutcomeScore} from '../../Util/outcome.js';
+import quizzMixin from '../../Mixins/quizzMixin.js';
+import getImageSourceMixin from '../../Mixins/getImageSourceMixin.js';
+
+import QuizzResult from './QuizzResult.vue';
 import ProgressBar from '../ProgressBar.vue';
 import QuestionCard from '../Cards/QuestionCard.vue';
-import quizzMixin from '../../Mixins/quizzMixin.js';
+import AnswerList from '../Answers/AnswerList.vue';
+import AnswerGrid from '../Answers/AnswerGrid.vue';
+import QuizzHeader from './QuizzHeader.vue';
+import Answers from './Outcome/Answers.vue';
 
 export default {
   name: 'OutcomeQuizz',
-  mixins: [quizzMixin],
-  components: {Outcome, ProgressBar, QuestionCard,},
+  mixins: [quizzMixin, getImageSourceMixin],
+  components: {Answers, QuizzHeader, AnswerGrid, AnswerList, QuizzResult, ProgressBar, QuestionCard,},
   data() {
     return {
       outcomeIdToScoreMap: {},
       outcome: null,
     }
-  },
-  created() {
-    this.updateCurrentQuestion();
   },
   computed: {
     outcomes() {
@@ -36,45 +50,33 @@ export default {
     },
     isOutcomeDetermined() {
       return this.outcome !== null;
-    }
+    },
   },
   methods: {
     handleSelectedAnswer(answer) {
       this.incrementOutcomeScore(answer);
 
       if (!this.hasMoreQuestions()) {
-        this.calculateOutcome();
+        this.determineOutcome();
         return;
       }
 
-      this.currentQuestionIndex += 1;
-      this.updateCurrentQuestion();
+      this.moveToNextQuestion();
     },
     incrementOutcomeScore(answer) {
-      const outcomeId = answer.answer_outcomes[0].outcome_id;
+      const outcomeId = parseOutcomeIdFromAnswer(answer);
 
-      if (this.outcomeIdToScoreMap.hasOwnProperty(outcomeId)) {
-        this.outcomeIdToScoreMap[outcomeId] += 1;
+      if (outcomeId === null) {
+        console.error('Could not parse outcome_id from answer.');
         return;
       }
 
-      this.outcomeIdToScoreMap[outcomeId] = 0;
+      this.outcomeIdToScoreMap[outcomeId] = getNewOutcomeScore(outcomeId, this.outcomeIdToScoreMap);
     },
-    calculateOutcome() {
-      const outcomeIds = Object.keys(this.outcomeIdToScoreMap);
-      let outcomeIdWithHighestScore = null;
-      let max = -1;
+    determineOutcome() {
+      const outcomeIdWithHighestScore = getOutcomeIdWithHighestScore(this.outcomeIdToScoreMap);
 
-      outcomeIds.forEach(outcomeId => {
-        const score = this.outcomeIdToScoreMap[outcomeId];
-
-        if (score > max) {
-          max = score;
-          outcomeIdWithHighestScore = outcomeId;
-        }
-      });
-
-      this.outcome = this.outcomes.find(outcome => outcome.id === parseInt(outcomeIdWithHighestScore));
+      this.outcome = this.outcomes.find(outcome => outcome.id === outcomeIdWithHighestScore);
     }
   }
 }

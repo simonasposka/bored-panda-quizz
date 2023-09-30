@@ -1,6 +1,6 @@
 <template>
   <div class="hidden lg:flex text-sm py-2 bg-[#353535] text-[#bfbfbf]">
-    <div class="container mx-auto">
+    <div class="container mx-auto px-5">
       <a href="https://www.boredpanda.com/art/" class="mr-4 hover:text-white">Featured</a>
       <span class="mr-4">•</span>
 

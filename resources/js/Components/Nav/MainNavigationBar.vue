@@ -1,5 +1,5 @@
 <template>
-  <div class="container flex mx-auto justify-between font-medium text-base py-2 px-5 lg:px-0">
+  <div class="container flex mx-auto justify-between font-medium text-base py-2 px-5">
     <div class="flex">
       <div class="flex-col justify-center">
         <a href="/">

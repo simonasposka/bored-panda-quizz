@@ -6,7 +6,7 @@ use App\Repositories\Answer\AnswerRepositoryInterface;
 use App\Repositories\AnswerOutcome\AnswerOutcomeRepositoryInterface;
 use Illuminate\Database\Seeder;
 
-class AnswerSeeder extends Seeder
+class QuizzOutcomeAnswerSeeder extends Seeder
 {
     public function __construct(
         readonly AnswerRepositoryInterface        $answerRepository,
@@ -16,11 +16,6 @@ class AnswerSeeder extends Seeder
     }
 
     public function run(): void
-    {
-        $this->createOutcomeAnswers();
-    }
-
-    private function createOutcomeAnswers(): void
     {
         $this->createOutcomeAnswerForFirstQuestion();
         $this->createOutcomeAnswerForSecondQuestion();

@@ -27,6 +27,7 @@ class QuizzRepository implements QuizzRepositoryInterface
             Relationships::QUESTIONS => function ($query) {
                 return $query->with([
                     Relationships::IMAGE,
+                    Relationships::CORRECT_ANSWERS,
                     Relationships::ANSWERS => function ($query) {
                         return $query->with([
                             Relationships::IMAGE,

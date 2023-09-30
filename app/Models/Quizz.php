@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Enums\QuizzType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -18,6 +20,7 @@ use Spatie\Sluggable\SlugOptions;
  * @property string created_at
  * @property string updated_at
  * @property string $type
+ * @property Collection $questions
  * @method static Builder where($column, $operator = null, $value = null, $boolean = 'and')
  */
 class Quizz extends Model
@@ -52,5 +55,10 @@ class Quizz extends Model
         return SlugOptions::create()
             ->generateSlugsFrom(self::TITLE_FIELD)
             ->saveSlugsTo(self::SLUG_FIELD);
+    }
+
+    public function isQuizzTypeOutcome(): bool
+    {
+        return $this->type === QuizzType::OUTCOME->value;
     }
 }

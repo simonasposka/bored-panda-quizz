@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\Answer\AnswerRepository;
 use App\Repositories\Answer\AnswerRepositoryInterface;
+use App\Repositories\CorrectAnswer\CorrectAnswerRepository;
+use App\Repositories\CorrectAnswer\CorrectAnswerRepositoryInterface;
 use App\Repositories\Image\ImageRepository;
 use App\Repositories\Image\ImageRepositoryInterface;
 use App\Repositories\Outcome\OutcomeRepository;
@@ -37,5 +39,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(AnswerRepositoryInterface::class, function () { return new AnswerRepository(); });
         $this->app->singleton(OutcomeRepositoryInterface::class, function () { return new OutcomeRepository(); });
         $this->app->singleton(AnswerOutcomeRepositoryInterface::class, function () { return new AnswerOutcomeRepository(); });
+        $this->app->singleton(CorrectAnswerRepositoryInterface::class, function () { return new CorrectAnswerRepository(); });
     }
 }

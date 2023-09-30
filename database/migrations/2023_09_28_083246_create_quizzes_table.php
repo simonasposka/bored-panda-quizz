@@ -19,9 +19,8 @@ return new class extends Migration {
             $table->foreignId(Quizz::IMAGE_ID_FIELD)->nullable()->constrained('images')->onDelete('set null');
             $table->text(Quizz::DESCRIPTION_FIELD);
             $table->enum(Quizz::TYPE_FIELD, [
-                QuizzType::POLL->value,
-                QuizzType::ANSWER->value,
-                QuizzType::OUTCOME->value
+                QuizzType::OUTCOME->value,
+                QuizzType::PICK_CORRECT->value,
             ]);
             $table->timestamps();
         });

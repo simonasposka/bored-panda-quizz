@@ -15,9 +15,15 @@ class ImageSeeder extends Seeder
     {
         // For Quizzes: 1-3
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_fill/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694973374/dcdgcb90aixs9ssfvbio.png', alt: 'Barbie and Ken driving a pink car');
-        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_fill/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1693508531/ibqdejjyvhrd4sccuhgg.png', alt: 'Ash Ketchum with Pikachu flying on Charizard\'s back');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695796541/faoejjougq6bc2tqomz4.jpg', alt: 'Mars');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_fill/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1693347209/aswowcniohkbhg69tasf.png', alt: 'Disney villain');
 
+        $this->createImagesForFirstQuizz();
+        $this->createImagesForSecondQuizz();
+    }
+
+    private function createImagesForFirstQuizz(): void
+    {
         // For Questions: 4-13
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694708814/llv8j4ablpbpodr6f9nw.jpg', alt: 'Barbie in a car');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694709220/dvjn4xe2dmoe5xhruyp7.jpg', alt: 'Barbie breakfast');
@@ -62,5 +68,20 @@ class ImageSeeder extends Seeder
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694714841/uszxw98vcjxm6hqlkham.jpg', alt: 'Barbie Athletic Outfit');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694714986/c0ttgqhcadvetaqlcnka.jpg', alt: 'Barbie Movie Outfit');
         $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_2/v1694715215/eshqc1qmcm3he5gebxkw.jpg', alt: 'Roller Blade Outfit');
+    }
+
+    private function createImagesForSecondQuizz(): void
+    {
+        // For Answers: 37-46
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695796541/faoejjougq6bc2tqomz4.jpg', alt: 'Mars landscape');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695796659/uvsoq8lhljvb6t8l5ti4.jpg', alt: 'Roman God');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695796705/lgvfzltrzxgm7y8oahb7.jpg', alt: 'Cosmos');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695796812/didl5s5g56fmfp2pejoq.jpg', alt: 'Mars Rover');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695796841/ch6rpcrpidxitdeiurnn.jpg', alt: 'Moon and Mars planets');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695796966/kkigqncse1tqlylwcl93.jpg', alt: 'Mars planet');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695797018/bqpbbxyhtq1rmvqcslbw.jpg', alt: 'Mars Rover');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695797180/thauj0m1hrtatl6dadsk.jpg', alt: 'Mars Rover');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695797268/izxqhtnjzopjihwzay3u.jpg', alt: 'Image captured by Mars Rover');
+        $this->imageRepository->createImage(url: 'https://img.ex.co/image/upload/ar_1.7777777777777777,c_crop/q_auto:good,f_auto,fl_lossy,w_640,c_limit,dpr_1/v1695797403/ktdbb5amwltoq1kowai8.jpg', alt: 'Satelite');
     }
 }

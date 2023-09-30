@@ -5,7 +5,6 @@ const quizzMixin = {
   data() {
     return {
       currentQuestionIndex: 0,
-      currentQuestion: null,
     }
   },
   computed: {
@@ -15,14 +14,26 @@ const quizzMixin = {
     lastQuestionIndex() {
       return this.questions.length - 1;
     },
+    answers() {
+      return this.currentQuestion.answers;
+    },
+    currentQuestionNumber() {
+      return this.currentQuestionIndex + 1;
+    },
+    lastQuestionNumber() {
+      return this.lastQuestionIndex + 1;
+    },
+    currentQuestion() {
+      return this.questions[this.currentQuestionIndex];
+    }
   },
 
   methods: {
-    updateCurrentQuestion() {
-      this.currentQuestion = this.questions[this.currentQuestionIndex];
+    moveToNextQuestion() {
+      this.currentQuestionIndex += 1;
     },
     hasMoreQuestions() {
-      return this.currentQuestionIndex + 1 < this.lastQuestionIndex;
+      return this.currentQuestionIndex + 1 <= this.lastQuestionIndex;
     },
   }
 };
