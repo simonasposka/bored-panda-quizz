@@ -2,14 +2,13 @@
 
 namespace App\Services;
 
+use App\Constants\CacheKeys;
 use App\Models\Quizz;
 use App\Repositories\Quizz\QuizzRepositoryInterface;
 use App\Services\Transformers\Quizz\QuizzTransformer;
 
 class QuizzService
 {
-    private const CACHE_KEY_GET_ALL_WITH_IMAGES = 'GET_ALL_WITH_IMAGES';
-
     public function __construct(
         readonly QuizzRepositoryInterface $quizzRepository,
         readonly QuizzRelationshipLoader  $quizzRelationshipLoader,
@@ -19,7 +18,7 @@ class QuizzService
 
     public function getAllWithImages(): array
     {
-        $cachedQuizzes = $this->cacheService->tryGetByKey(self::CACHE_KEY_GET_ALL_WITH_IMAGES);
+        $cachedQuizzes = $this->cacheService->tryGetByKey(CacheKeys::ALL_QUIZZES_WITH_IMAGES);
 
         if ($cachedQuizzes != null) {
             return $cachedQuizzes;
@@ -27,7 +26,7 @@ class QuizzService
 
         $quizzes = $this->quizzRepository->getAllWithImages();
 
-        $this->cacheService->remember(self::CACHE_KEY_GET_ALL_WITH_IMAGES, $quizzes);
+        $this->cacheService->remember(CacheKeys::ALL_QUIZZES_WITH_IMAGES, $quizzes);
 
         return $quizzes;
     }
