@@ -3,7 +3,7 @@ import {createInertiaApp} from '@inertiajs/vue2';
 
 import Layout from './Layout.vue';
 
-await createInertiaApp({
+createInertiaApp({
     resolve: name => {
       const pages = import.meta.glob('./Pages/**/*.vue', { eager: true });
 
