@@ -8,6 +8,11 @@ use App\Constants\Relationships;
 
 class QuizzRepository implements QuizzRepositoryInterface
 {
+    public function getAllWithImages(): array
+    {
+        return Quizz::with('image')->get()->toArray();
+    }
+
     public function createQuizz(string $title, QuizzType $quizzType, ?string $description = null, ?int $imageId = null): Quizz
     {
         $quizz              = new Quizz();

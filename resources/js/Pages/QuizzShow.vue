@@ -31,7 +31,7 @@ import PickCorrectQuizz from '../Components/Quizz/PickCorrectQuizz.vue';
 import QuizzHeader from '../Components/Quizz/QuizzHeader.vue';
 
 export default {
-  name: 'ShowQuizz',
+  name: 'QuizzShow',
   components: {QuizzHeader, OutcomeQuizz, PickCorrectQuizz, PrimaryButton},
   mixins: [getImageSourceMixin],
   props: {

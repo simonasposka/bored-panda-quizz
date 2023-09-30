@@ -23,7 +23,7 @@
 import getImageSourceMixin from '../Mixins/getImageSourceMixin.js';
 
 export default {
-  name: 'Welcome',
+  name: 'QuizzIndex',
   props: {
     quizzes: Array,
   },

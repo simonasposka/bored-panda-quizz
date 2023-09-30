@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Services\QuizzService;
-use App\Services\Transformers\Quizz\QuizzTransformer;
 use Inertia\Response;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class QuizzesController extends Controller
 {
-    public function __construct(
-        readonly QuizzService     $quizzService,
-        readonly QuizzTransformer $quizzTransformer,
-    ) {}
+    public function __construct(readonly QuizzService $quizzService) {}
+
+    public function index(): Response
+    {
+        return Inertia('QuizzIndex', [
+            'quizzes' => $this->quizzService->getAllWithImages(),
+        ]);
+    }
 
     public function show(string $slug): Response
     {
@@ -22,8 +25,8 @@ class QuizzesController extends Controller
             abort(SymfonyResponse::HTTP_NOT_FOUND);
         }
 
-        return Inertia('ShowQuizz', [
-            'quizz' => $this->quizzTransformer->transform($quizz),
+        return Inertia('QuizzShow', [
+            'quizz' => $quizz,
         ]);
     }
 }
