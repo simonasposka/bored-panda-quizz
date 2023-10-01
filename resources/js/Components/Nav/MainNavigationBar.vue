@@ -3,7 +3,7 @@
     <div class="flex">
       <div class="flex-col justify-center">
         <a href="/">
-          <img class="hidden lg:inline-block h-[80px]" src="../../../assets/images/logo.png" alt="BoredPanda dark logo">
+          <img class="hidden lg:inline-block h-[80px]" src="../../../assets/images/logo.png" alt="BoredPanda dark logo" width="100%">
           <img class="lg:hidden h-[37px]" src="../../../assets/images/logo-light.png" alt="BoredPanda light logo">
         </a>
       </div>
