@@ -16,6 +16,7 @@ use App\Repositories\Question\QuestionRepository;
 use App\Repositories\Question\QuestionRepositoryInterface;
 use App\Repositories\Quizz\QuizzRepository;
 use App\Repositories\Quizz\QuizzRepositoryInterface;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -33,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        URL::forceScheme('https');
         $this->app->singleton(ImageRepositoryInterface::class, function () { return new ImageRepository(); });
         $this->app->singleton(QuizzRepositoryInterface::class, function () { return new QuizzRepository(); });
         $this->app->singleton(QuestionRepositoryInterface::class, function () { return new QuestionRepository(); });
