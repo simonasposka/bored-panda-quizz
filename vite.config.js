@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue2';
+import viteCompression from 'vite-plugin-compression'
 import basicSsl from '@vitejs/plugin-basic-ssl';
 
 export default defineConfig({
@@ -8,6 +9,7 @@ export default defineConfig({
         https: true,
     },
     plugins: [
+        viteCompression(),
         basicSsl(),
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
