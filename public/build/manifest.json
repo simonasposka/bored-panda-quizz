@@ -1,0 +1,36 @@
+{
+  "resources/assets/images/logo-light.png": {
+    "file": "assets/logo-light-567366db.png",
+    "src": "resources/assets/images/logo-light.png"
+  },
+  "resources/assets/images/logo.png": {
+    "file": "assets/logo-afbdac43.png",
+    "src": "resources/assets/images/logo.png"
+  },
+  "resources/assets/images/page-not-found.png": {
+    "file": "assets/page-not-found-7db877e0.png",
+    "src": "resources/assets/images/page-not-found.png"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-03c499cf.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-52bb3f8e.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "assets": [
+      "assets/page-not-found-7db877e0.png",
+      "assets/logo-afbdac43.png",
+      "assets/logo-light-567366db.png"
+    ],
+    "css": [
+      "assets/app-52bb3f8e.css"
+    ],
+    "file": "assets/app-1f339424.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
