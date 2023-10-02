@@ -16,6 +16,8 @@ use App\Repositories\Question\QuestionRepository;
 use App\Repositories\Question\QuestionRepositoryInterface;
 use App\Repositories\Quizz\QuizzRepository;
 use App\Repositories\Quizz\QuizzRepositoryInterface;
+use App\Services\Cache\CacheService;
+use App\Services\Cache\CacheServiceInterface;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -42,5 +44,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(OutcomeRepositoryInterface::class, function () { return new OutcomeRepository(); });
         $this->app->singleton(AnswerOutcomeRepositoryInterface::class, function () { return new AnswerOutcomeRepository(); });
         $this->app->singleton(CorrectAnswerRepositoryInterface::class, function () { return new CorrectAnswerRepository(); });
+        $this->app->singleton(CacheServiceInterface::class, function () { return new CacheService(); });
     }
 }

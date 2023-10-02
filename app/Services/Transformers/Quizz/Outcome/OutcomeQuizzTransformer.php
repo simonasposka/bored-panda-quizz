@@ -33,7 +33,7 @@ class OutcomeQuizzTransformer implements QuizzTransformerInterface
             updatedAt: $quizz->updated_at,
             image: $quizz->image,
             questions: $transformedQuestions,
-            outcomes: $quizz->outcomes,
+            outcomes: $quizz->outcomes->toArray(),
         );
     }
 }

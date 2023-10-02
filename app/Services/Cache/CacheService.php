@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Cache;
 
 use App\Constants\Durations;
 use Illuminate\Support\Facades\Cache;
 
-class CacheService
+class CacheService implements CacheServiceInterface
 {
     public function tryGetByKey(string $key): ?array
     {

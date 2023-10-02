@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Constants\CacheKeys;
 use App\Models\Quizz;
 use App\Repositories\Quizz\QuizzRepositoryInterface;
+use App\Services\Cache\CacheServiceInterface;
 use App\Services\Transformers\Quizz\QuizzTransformer;
 
 class QuizzService
@@ -12,7 +13,7 @@ class QuizzService
     public function __construct(
         readonly QuizzRepositoryInterface $quizzRepository,
         readonly QuizzRelationshipLoader  $quizzRelationshipLoader,
-        readonly CacheService             $cacheService,
+        readonly CacheServiceInterface    $cacheService,
         readonly QuizzTransformer         $quizzTransformer,
     ) {}
 

@@ -4,21 +4,20 @@ namespace App\Services\Transformers\Quizz\Outcome;
 
 use App\Models\Image;
 use App\Services\Transformers\Quizz\BaseTransformedQuizz;
-use Illuminate\Support\Collection;
 
 class OutcomeQuizz extends BaseTransformedQuizz
 {
     public function __construct(
-        int               $id,
-        string            $title,
-        string            $slug,
-        string            $description,
-        string            $type,
-        string            $createdAt,
-        string            $updatedAt,
-        ?Image            $image,
-        array             $questions,
-        public Collection $outcomes,
+        int          $id,
+        string       $title,
+        string       $slug,
+        string       $description,
+        string       $type,
+        string       $createdAt,
+        string       $updatedAt,
+        ?Image       $image,
+        array        $questions,
+        public array $outcomes,
     )
     {
         parent::__construct(
