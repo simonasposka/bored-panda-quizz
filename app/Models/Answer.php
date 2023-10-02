@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $question_id
  * @property ?int $image_id
  * @property ?string $text
+ * @property ?Image $image
  */
 class Answer extends Model
 {

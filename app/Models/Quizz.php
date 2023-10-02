@@ -13,14 +13,17 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 /**
+ * @property int $id
+ * @property ?int image_id
  * @property string $title
  * @property string $slug
- * @property ?string $description
- * @property ?int image_id
  * @property string created_at
  * @property string updated_at
  * @property string $type
+ * @property ?string $description
+ * @property ?Image $image
  * @property Collection $questions
+ * @property Collection $outcomes
  * @method static Builder where($column, $operator = null, $value = null, $boolean = 'and')
  */
 class Quizz extends Model

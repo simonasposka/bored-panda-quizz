@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 /**
+ * @property int $id
  * @property int $quizz_id
  * @property ?int $image_id
  * @property string $text
+ * @property ?Image $image
+ * @property Collection $answers
+ * @property Collection $correctAnswers
  */
 class Question extends Model
 {

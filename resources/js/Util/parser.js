@@ -21,7 +21,7 @@ const parseOutcomeIdFromOutcomes = answerOutcomes => {
 };
 
 export const parseCorrectAnswerFromQuestion = question => {
-  const correctAnswers = question['correct_answers'];
+  const correctAnswers = question['correctAnswers'];
 
   if (isNullOrEmpty(correctAnswers)) {
     return null;

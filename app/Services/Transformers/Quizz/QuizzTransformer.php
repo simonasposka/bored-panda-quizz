@@ -3,22 +3,17 @@
 namespace App\Services\Transformers\Quizz;
 
 use App\Models\Quizz;
-use App\Services\Transformers\Quizz\TypeOutcome\QuizzTypeOutcomeTransformer;
-use App\Services\Transformers\Quizz\TypePickCorrect\QuizzTypePickCorrectTransformer;
+use App\Services\Factories\QuizzTransformerFactory;
 
 class QuizzTransformer
 {
     public function __construct(
-        readonly QuizzTypePickCorrectTransformer $quizzTypePickCorrectTransformer,
-        readonly QuizzTypeOutcomeTransformer     $quizzTypeOutcomeTransformer,
-    ) {}
+        readonly QuizzTransformerFactory $quizzTransformerFactory) {}
 
-    public function transform(Quizz $quizz): array
+    public function transform(Quizz $quizz): BaseTransformedQuizz
     {
-        if ($quizz->isQuizzTypeOutcome()) {
-            return $this->quizzTypeOutcomeTransformer->transform($quizz);
-        }
+        $transformer = $this->quizzTransformerFactory->create($quizz->type);
 
-        return $this->quizzTypePickCorrectTransformer->transform($quizz);
+        return $transformer->transform($quizz);
     }
 }

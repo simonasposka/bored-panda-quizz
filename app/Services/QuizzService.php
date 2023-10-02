@@ -49,7 +49,7 @@ class QuizzService
             $this->quizzRelationshipLoader->loadOutcomesWithImages($quizz);
         }
 
-        $transformedQuizz = $this->quizzTransformer->transform($quizz);
+        $transformedQuizz = $this->quizzTransformer->transform($quizz)->toArray();
 
         $this->cacheService->remember($slug, $transformedQuizz);
 
