@@ -4,11 +4,12 @@ namespace Tests;
 
 use App\Models\Answer;
 use App\Models\Quizz;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication;
+    use CreatesApplication, RefreshDatabase;
 
     protected function createMockAnswer(): Answer {
         $answer = new Answer();
