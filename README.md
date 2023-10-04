@@ -36,14 +36,14 @@ https://bored-panda-quizz-1d9df4349b72.herokuapp.com/
 
 When building this system I’ve decided to use a monolithic approach, mainly because of these reasons:
 
-1. With monolithic approach, it’s easier to implement server-side rendering.
+1. With a monolithic approach, it’s easier to implement server-side rendering.
 
-   SSR allows to have faster initial page load, better SEO, improved caching and has reduced Time to Interactive (TTI) - all crucial to BoredPanda webpage;
+   SSR allows to have faster initial page load, better SEO, improved caching, and has reduced Time to Interactive (TTI) - all crucial to BoredPanda webpage;
 
-2. It’s easier to build monolithic simplest approach when building MVPs / POC;
-3. It’s perfectly suited for such task, given the provided context.
+2. It’s the simplest approach when building MVPs / POC;
+3. It’s perfectly suited for such a task, given the provided context.
 
-For the tech stack, I’ve decided to use latest versions of PHP, MySQL and Laravel for the backend, Vue2, Intertia.js and Tailwind CSS for the frontend.
+For the tech stack, I’ve decided to use the latest versions of PHP, MySQL, and Laravel for the backend, Vue2, Intertia.js, and Tailwind CSS for the frontend.
 
 The application has two routes:
 
