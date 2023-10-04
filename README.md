@@ -56,7 +56,7 @@ All calculations (determining score, picking an outcome) are implemented on the 
 
 ### Database Schema
 
-![db_schema.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b069fb43-80d7-4032-9e00-ca429769e4fd/f3725e98-a89c-4034-b2cd-a26bd09ea6f8/db_schema.png)
+![db_schema.png](https://github.com/simonasposka/bored-panda-quizz/blob/main/db_schema.png?raw=true)
 
 ### Testing
 
